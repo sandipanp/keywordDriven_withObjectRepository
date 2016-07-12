@@ -4,6 +4,7 @@
 	<test name="Regression Test">
 		<classes>
 			<class name="keywordtest.AllkeywordTests"/>
+			<class name="keywordtest.testframework"/>
 		</classes>
 	</test>
 </suite>
