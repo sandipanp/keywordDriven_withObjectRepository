@@ -13,4 +13,5 @@ public class ExcelHelper {
 	public static String loginTestSheetName = "leathershoplogin";
 	
 	public static String canGoToMensFormalShoPpage = "cangotomensformalshoepage";
+	public static String formalShoepageSorting = "formalShoepageSorting";
 }

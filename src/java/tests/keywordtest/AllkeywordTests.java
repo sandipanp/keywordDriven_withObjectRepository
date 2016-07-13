@@ -11,13 +11,18 @@ import keyworddriven.KeywordDefinition;
 
 public class AllkeywordTests extends StartWedDriver  {
 
-	@Test
+	@Test(enabled=true)
 	public void loginTest() throws IOException, NoSuchKeywordException{
 		KeywordDefinition.performactionbasedonKeyword(ExcelHelper.keywordTestcaseFilePath, ExcelHelper.loginTestSheetName);
 	}
 	
-	@Test
-	public void canGoToMensFormalShoePage() throws IOException, NoSuchKeywordException {
+	@Test(enabled=true)
+	public void canGoToMensFormalShoePageTest() throws IOException, NoSuchKeywordException {
 		KeywordDefinition.performactionbasedonKeyword(ExcelHelper.keywordTestcaseFilePath, ExcelHelper.canGoToMensFormalShoPpage);
+	}
+	
+	@Test(enabled=true)
+	public void formalShoePageSortingTest() throws IOException, NoSuchKeywordException{
+		KeywordDefinition.performactionbasedonKeyword(ExcelHelper.keywordTestcaseFilePath, ExcelHelper.formalShoepageSorting);
 	}
 }

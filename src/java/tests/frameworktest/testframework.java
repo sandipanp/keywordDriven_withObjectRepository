@@ -6,21 +6,23 @@ import org.testng.annotations.Test;
 
 import drivers.StartWedDriver;
 import functionalibrary.LoginLogout;
+import functionalibrary.Navigation;
 import helpers.ActionHelper;
 import helpers.ButtonHelper;
+import helpers.ComboboxHelper;
 import helpers.LinkHelper;
 import helpers.TextBoxHelper;
 import helpers.VerificationHelper;
 
 public class testframework extends StartWedDriver {
 
-	@Test
+	@Test(enabled=true)
 	public void Test1() throws Exception{
 		//driver.findElement(objectRepo.getLocator("leathershop.homepage.signinlink")).click();
 		LinkHelper.clickLink(objectRepo.getLocator("leathershop.homepage.signinlink"));
 		System.out.println("In text 1");
 	}
-	@Test
+	@Test(enabled=true)
 	public void Test2() throws Exception{
 		//Click Sign in link in home page
 		LinkHelper.clickLink(objectRepo.getLocator("leathershop.homepage.signinlink"));
@@ -38,21 +40,21 @@ public class testframework extends StartWedDriver {
 		VerificationHelper.verifyExactText("Sandipan Pramanik", objectRepo.getLocator("leathershop.myaccountpage.displayedusename"));
 	}
 	
-	@Test
+	@Test(enabled=true)
 	public void Test3() {
 		System.out.println("In test 3");
 	}
 	
-	@Test
+	@Test(enabled=true)
 	public void LoginTest()  {
-		LoginLogout.loginToSite("sandipan.mca@gmail.com", "Password1");
+		LoginLogout.loginToSite(configProp.getUsername(), configProp.getPassword());
 		LoginLogout.logoutFromSite();
 	}
 	
-	@Test
+	@Test(enabled=true)
 	public void CanGoToMenFormalShoePage() throws InterruptedException{
 		// First log in to site
-		LoginLogout.loginToSite("sandipan.mca@gmail.com", "Password1");
+		LoginLogout.loginToSite(configProp.getUsername(), configProp.getPassword());
 		// Move on Menu Option :  Men
 		ActionHelper.moveToElement(objectRepo.getLocator("leathershop.menu.men"));
 		
@@ -83,5 +85,18 @@ public class testframework extends StartWedDriver {
 		Assert.assertTrue(result, "Not at formal shoe page");
 		*/
 		
+	}
+	
+	@Test(enabled=true)
+	public void sortingFormalShoes(){
+		// First log in to site
+		LoginLogout.loginToSite(configProp.getUsername(), configProp.getPassword());
+		// Move to formal shoe page
+		Navigation.moveToMensFormalShoePage();
+		//Select option
+		ComboboxHelper.selectComboOption(objectRepo.getLocator("leathershop.men.formalshoepage.sortDropDown"), "Price: Lowest first");
+		
+		// Verify combo selection
+		VerificationHelper.verifyComboSelection(objectRepo.getLocator("leathershop.men.formalshoepage.sortDropDown"), "Price: Lowest first");
 	}
 }

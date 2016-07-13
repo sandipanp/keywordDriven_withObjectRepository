@@ -12,8 +12,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import customexception.NoSuchKeywordException;
 import excelhelpers.ExcelHelper;
 import functionalibrary.LoginLogout;
+import functionalibrary.Navigation;
 import helpers.ActionHelper;
 import helpers.ButtonHelper;
+import helpers.ComboboxHelper;
 import helpers.LinkHelper;
 import helpers.TextBoxHelper;
 import helpers.VerificationHelper;
@@ -59,6 +61,15 @@ public class KeywordDefinition {
 					break;
 				case "logoutFromSite":
 					LoginLogout.logoutFromSite();
+					break;
+				case "moveToMensFormalShoePage":
+					Navigation.moveToMensFormalShoePage();
+					break;
+				case "selectComboOption":
+					ComboboxHelper.selectComboOptionByKeyword(row);
+					break;
+				case "verifyComboSelection":
+					VerificationHelper.verifyComboSelectionByKeyword(row);
 					break;
 				default:
 					throw new NoSuchKeywordException("No keyword found : " + row.getCell(ExcelHelper.actions).getStringCellValue());
