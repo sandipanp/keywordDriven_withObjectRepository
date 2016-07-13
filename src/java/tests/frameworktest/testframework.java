@@ -1,9 +1,12 @@
 package frameworktest;
 
 
+
 import org.testng.annotations.Test;
 
 import drivers.StartWedDriver;
+import functionalibrary.LoginLogout;
+import helpers.ActionHelper;
 import helpers.ButtonHelper;
 import helpers.LinkHelper;
 import helpers.TextBoxHelper;
@@ -11,13 +14,13 @@ import helpers.VerificationHelper;
 
 public class testframework extends StartWedDriver {
 
-	@Test(priority=1)
+	@Test
 	public void Test1() throws Exception{
 		//driver.findElement(objectRepo.getLocator("leathershop.homepage.signinlink")).click();
 		LinkHelper.clickLink(objectRepo.getLocator("leathershop.homepage.signinlink"));
 		System.out.println("In text 1");
 	}
-	@Test(priority = 2)
+	@Test
 	public void Test2() throws Exception{
 		//Click Sign in link in home page
 		LinkHelper.clickLink(objectRepo.getLocator("leathershop.homepage.signinlink"));
@@ -32,11 +35,53 @@ public class testframework extends StartWedDriver {
 		ButtonHelper.clickButton(objectRepo.getLocator("leathershop.signinpage.signinbutton"));
 		
 		//Verify log in
-		VerificationHelper.verifyText("Sandipan Pramanik", objectRepo.getLocator("leathershop.myaccountpage.displayedusename"));
+		VerificationHelper.verifyExactText("Sandipan Pramanik", objectRepo.getLocator("leathershop.myaccountpage.displayedusename"));
 	}
 	
-	@Test(priority = 3)
+	@Test
 	public void Test3() {
 		System.out.println("In test 3");
+	}
+	
+	@Test
+	public void LoginTest()  {
+		LoginLogout.loginToSite("sandipan.mca@gmail.com", "Password1");
+		LoginLogout.logoutFromSite();
+	}
+	
+	@Test
+	public void CanGoToMenFormalShoePage() throws InterruptedException{
+		// First log in to site
+		LoginLogout.loginToSite("sandipan.mca@gmail.com", "Password1");
+		// Move on Menu Option :  Men
+		ActionHelper.moveToElement(objectRepo.getLocator("leathershop.menu.men"));
+		
+		// Move to sub menu Click on SubMenu Option : Formal
+		ActionHelper.moveToElementAndClick(objectRepo.getLocator("leathershop.men.submenu.formal"));
+		
+		// Verify you are on formal page
+		VerificationHelper.verifyTextContains(objectRepo.getLocator("leathershop.men.formalshoepage.formaltext"), "FORMAL");
+		
+		// Log out from site
+		LoginLogout.logoutFromSite();
+		
+		/*Actions act = new Actions(driver);
+		act.moveToElement(driver.findElement(objectRepo.getLocator("leathershop.menu.men")))
+			.build().perform();
+		Thread.sleep(3);
+		// Click on SubMenu Option : Formal
+		new Actions(driver).moveToElement(driver.findElement(objectRepo.getLocator("leathershop.men.submenu.formal")))
+		.click()
+		.build()
+		.perform();
+		
+		// Waiting for formal text to appear
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(objectRepo.getLocator("leathershop.men.formalshoepage.formaltext")));
+		// Verify you are on formal page
+		boolean result = driver.findElement(objectRepo.getLocator("leathershop.men.formalshoepage.formaltext")).getText().contains("FORMAL");
+		Assert.assertTrue(result, "Not at formal shoe page");
+		*/
+		
 	}
 }

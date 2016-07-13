@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeMethod;
 public class StartWedDriver {
 
 	public static WebDriver driver;
-	public ReadConfigProperty configProp;
+	public static ReadConfigProperty configProp;
 	public static ReadObjectRepository objectRepo;
 	
 	@BeforeMethod

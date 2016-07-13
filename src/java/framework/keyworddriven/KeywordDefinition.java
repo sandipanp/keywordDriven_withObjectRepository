@@ -11,6 +11,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import customexception.NoSuchKeywordException;
 import excelhelpers.ExcelHelper;
+import functionalibrary.LoginLogout;
+import helpers.ActionHelper;
 import helpers.ButtonHelper;
 import helpers.LinkHelper;
 import helpers.TextBoxHelper;
@@ -40,8 +42,23 @@ public class KeywordDefinition {
 				case "clickButton":
 					ButtonHelper.clickButtonByKeyword(row);
 					break;
-				case "verifyText":
-					VerificationHelper.verifyTextByKeyword(row);
+				case "verifyExactText":
+					VerificationHelper.verifyExactTextByKeyword(row);
+					break;
+				case "loginToSite":
+					LoginLogout.LoginToSiteByKeyword();
+					break;
+				case "moveToElement":
+					ActionHelper.moveToElementByKeyword(row);
+					break;
+				case "moveToElementAndClick":
+					ActionHelper.moveToElementAndClickByKeyword(row);
+					break;
+				case "verifyTextContains":
+					VerificationHelper.verifyTextContainsByKeyword(row);
+					break;
+				case "logoutFromSite":
+					LoginLogout.logoutFromSite();
 					break;
 				default:
 					throw new NoSuchKeywordException("No keyword found : " + row.getCell(ExcelHelper.actions).getStringCellValue());

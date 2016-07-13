@@ -85,5 +85,6 @@
     <!-- ================== Target Usage - Default target to run when just Ant command alone is used ============ -->
     <target name="usage">
         <echo message="Use command: Ant run to execute the tests"/>
+    	<echo message="Use command: Ant runsuite to execute the testsuite"/>
     </target>
 </project>

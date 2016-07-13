@@ -9,14 +9,24 @@ import excelhelpers.ExcelHelper;
 
 public class VerificationHelper extends StartWedDriver {
 
-	public static void verifyText(String expectedText, By locator){
+	public static void verifyExactText(String expectedText, By locator){
 		String actualText = GenericHelpers.WaitForElementTobeVisible(30, locator).getText();
-		Assert.assertTrue(actualText.equalsIgnoreCase(expectedText), "Login Failure");
+		Assert.assertTrue(actualText.equalsIgnoreCase(expectedText), "Actula text is not equal to expected text");
 	}
 
-	public static void verifyTextByKeyword(XSSFRow row) {
+	public static void verifyExactTextByKeyword(XSSFRow row) {
 		String locatorKey = row.getCell(ExcelHelper.locatorKey).getStringCellValue();
-		verifyText(row.getCell(ExcelHelper.testData).getStringCellValue(), objectRepo.getLocator(locatorKey));
+		verifyExactText(row.getCell(ExcelHelper.verificationText).getStringCellValue(), objectRepo.getLocator(locatorKey));
+		
+	}
+	
+	public static void verifyTextContains(By locator, String expectedTextContains) {
+		String actualText = GenericHelpers.WaitForElementTobeVisible(30, locator).getText();
+		Assert.assertTrue(actualText.contains(expectedTextContains), "Actual text does not contains expected text");
+	}
+
+	public static void verifyTextContainsByKeyword(XSSFRow row) {
+		verifyTextContains(objectRepo.getLocator(row.getCell(ExcelHelper.locatorKey).getStringCellValue()), row.getCell(ExcelHelper.verificationText).getStringCellValue());
 		
 	}
 }

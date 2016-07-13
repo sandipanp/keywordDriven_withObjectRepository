@@ -16,6 +16,14 @@ public class ReadConfigProperty {
 		inputStream.close();
 	}
 	
+	public String getUsername(){
+		return prop.getProperty("username");
+	}
+	
+	public String getPassword(){
+		return prop.getProperty("password");
+	}
+	
 	public String getBrowserType(){
 		return prop.getProperty("browser");
 	}

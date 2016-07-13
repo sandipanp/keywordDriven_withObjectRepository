@@ -15,4 +15,9 @@ public class AllkeywordTests extends StartWedDriver  {
 	public void loginTest() throws IOException, NoSuchKeywordException{
 		KeywordDefinition.performactionbasedonKeyword(ExcelHelper.keywordTestcaseFilePath, ExcelHelper.loginTestSheetName);
 	}
+	
+	@Test
+	public void canGoToMensFormalShoePage() throws IOException, NoSuchKeywordException {
+		KeywordDefinition.performactionbasedonKeyword(ExcelHelper.keywordTestcaseFilePath, ExcelHelper.canGoToMensFormalShoPpage);
+	}
 }

@@ -6,8 +6,11 @@ public class ExcelHelper {
 	public static int locatorKey =  2;
 	public static int actions = 3;
 	public static int testData = 4;
+	public static int verificationText = 5;
 	
 	// keyword excel sheet location and sheet name
 	public static String keywordTestcaseFilePath = ExcelHelper.class.getClassLoader().getResource("keywordtestcases/TestCases.xlsx").getPath();
 	public static String loginTestSheetName = "leathershoplogin";
+	
+	public static String canGoToMensFormalShoPpage = "cangotomensformalshoepage";
 }
