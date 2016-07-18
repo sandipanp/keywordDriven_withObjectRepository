@@ -4,7 +4,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.openqa.selenium.By;
 
 import drivers.StartWedDriver;
-import excelhelpers.ExcelHelper;
+import excelhelpers.ExcelFilePathSheetColHelper;
 
 public class TextBoxHelper extends StartWedDriver {
 
@@ -13,7 +13,7 @@ public class TextBoxHelper extends StartWedDriver {
 	}
 
 	public static void enterTextByKeyword(XSSFRow row) {
-		String locatorKey = row.getCell(ExcelHelper.locatorKey).getStringCellValue();
-		enterText(objectRepo.getLocator(locatorKey), row.getCell(ExcelHelper.testData).getStringCellValue());
+		String locatorKey = row.getCell(ExcelFilePathSheetColHelper.locatorKey).getStringCellValue();
+		enterText(objectRepo.getLocator(locatorKey), row.getCell(ExcelFilePathSheetColHelper.testData).getStringCellValue());
 	}
 }

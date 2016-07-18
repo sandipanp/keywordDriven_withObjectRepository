@@ -1,6 +1,7 @@
 package drivers;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -9,8 +10,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 
-public class StartWedDriver {
+import excelhelpers.ExcelFilePathSheetColHelper;
+
+
+public class StartWedDriver extends ExcelFilePathSheetColHelper{
 
 	public static WebDriver driver;
 	public static ReadConfigProperty configProp;
@@ -53,4 +58,16 @@ public class StartWedDriver {
 		if(driver != null)
 			driver = null;
 	}
+	
+	@DataProvider
+	  public Object[][] dataProvider(Method method) throws IOException
+	  {
+		//configProp = new ReadConfigProperty();
+		DataDrivenHelper ddh = new DataDrivenHelper(ExcelFilePathSheetColHelper.testDataFilePath);
+			
+		Object[][] testData= ddh.getTestCaseDataSets(ExcelFilePathSheetColHelper.testDataSheet, method.getName());
+		
+		return testData;
+			
+	  }
 }

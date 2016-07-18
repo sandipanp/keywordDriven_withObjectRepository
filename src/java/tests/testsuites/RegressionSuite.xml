@@ -5,6 +5,7 @@
 		<classes>
 			<class name="keywordtest.AllkeywordTests"/>
 			<class name="frameworktest.testframework"/>
+			<class name="frameworktest.DataProviderTest"/>
 		</classes>
 	</test>
 </suite>

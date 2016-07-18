@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import drivers.StartWedDriver;
-import excelhelpers.ExcelHelper;
+import excelhelpers.ExcelFilePathSheetColHelper;
 
 public class VerificationHelper extends StartWedDriver {
 
@@ -16,8 +16,8 @@ public class VerificationHelper extends StartWedDriver {
 	}
 
 	public static void verifyExactTextByKeyword(XSSFRow row) {
-		String locatorKey = row.getCell(ExcelHelper.locatorKey).getStringCellValue();
-		verifyExactText(row.getCell(ExcelHelper.verificationText).getStringCellValue(), objectRepo.getLocator(locatorKey));
+		String locatorKey = row.getCell(ExcelFilePathSheetColHelper.locatorKey).getStringCellValue();
+		verifyExactText(row.getCell(ExcelFilePathSheetColHelper.verificationText).getStringCellValue(), objectRepo.getLocator(locatorKey));
 		
 	}
 	
@@ -27,7 +27,7 @@ public class VerificationHelper extends StartWedDriver {
 	}
 
 	public static void verifyTextContainsByKeyword(XSSFRow row) {
-		verifyTextContains(objectRepo.getLocator(row.getCell(ExcelHelper.locatorKey).getStringCellValue()), row.getCell(ExcelHelper.verificationText).getStringCellValue());
+		verifyTextContains(objectRepo.getLocator(row.getCell(ExcelFilePathSheetColHelper.locatorKey).getStringCellValue()), row.getCell(ExcelFilePathSheetColHelper.verificationText).getStringCellValue());
 	}
 	
 	public static void verifyExactText(String actualText, String expectedText){
@@ -40,7 +40,7 @@ public class VerificationHelper extends StartWedDriver {
 	}
 
 	public static void verifyComboSelectionByKeyword(XSSFRow row) {
-		verifyComboSelection(objectRepo.getLocator(row.getCell(ExcelHelper.locatorKey).getStringCellValue()), row.getCell(ExcelHelper.verificationText).getStringCellValue());
+		verifyComboSelection(objectRepo.getLocator(row.getCell(ExcelFilePathSheetColHelper.locatorKey).getStringCellValue()), row.getCell(ExcelFilePathSheetColHelper.verificationText).getStringCellValue());
 		
 	}
 }

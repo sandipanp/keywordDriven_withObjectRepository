@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import drivers.StartWedDriver;
-import excelhelpers.ExcelHelper;
+import excelhelpers.ExcelFilePathSheetColHelper;
 
 public class ComboboxHelper extends StartWedDriver {
 
@@ -21,7 +21,7 @@ public class ComboboxHelper extends StartWedDriver {
 	}
 
 	public static void selectComboOptionByKeyword(XSSFRow row) {
-		selectComboOption(objectRepo.getLocator(row.getCell(ExcelHelper.locatorKey).getStringCellValue()), row.getCell(ExcelHelper.testData).getStringCellValue());
+		selectComboOption(objectRepo.getLocator(row.getCell(ExcelFilePathSheetColHelper.locatorKey).getStringCellValue()), row.getCell(ExcelFilePathSheetColHelper.testData).getStringCellValue());
 		
 	}
 }

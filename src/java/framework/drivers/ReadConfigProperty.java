@@ -39,4 +39,13 @@ public class ReadConfigProperty {
 	public int getImplisitWaitTime(){
 		return Integer.parseInt(prop.getProperty("ElementWaitTime"));
 	}
+	
+	/*
+	public String getMasterTestDataFile(){
+		return prop.getProperty("mastertestdatafile");
+	}
+	
+	public String getTestDataSheetName(){
+		return prop.getProperty("testdatasheet");
+	}*/
 }

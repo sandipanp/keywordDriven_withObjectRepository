@@ -10,7 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import customexception.NoSuchKeywordException;
-import excelhelpers.ExcelHelper;
+import excelhelpers.ExcelFilePathSheetColHelper;
 import functionalibrary.LoginLogout;
 import functionalibrary.Navigation;
 import helpers.ActionHelper;
@@ -34,7 +34,7 @@ public class KeywordDefinition {
 			sheet = workbook.getSheet(sheetName);
 			for(int rowCount = 1; rowCount <= sheet.getLastRowNum(); rowCount++){
 				row = sheet.getRow(rowCount);
-				switch (row.getCell(ExcelHelper.actions).getStringCellValue()) {
+				switch (row.getCell(ExcelFilePathSheetColHelper.actions).getStringCellValue()) {
 				case "clickLink":
 					LinkHelper.clickLinkByKeyword(row);
 					break;
@@ -72,7 +72,7 @@ public class KeywordDefinition {
 					VerificationHelper.verifyComboSelectionByKeyword(row);
 					break;
 				default:
-					throw new NoSuchKeywordException("No keyword found : " + row.getCell(ExcelHelper.actions).getStringCellValue());
+					throw new NoSuchKeywordException("No keyword found : " + row.getCell(ExcelFilePathSheetColHelper.actions).getStringCellValue());
 				}
 			}
 		} catch (FileNotFoundException e) {

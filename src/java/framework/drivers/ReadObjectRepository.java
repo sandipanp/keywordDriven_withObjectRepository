@@ -12,7 +12,7 @@ public class ReadObjectRepository {
 	private InputStream inputStraem;
 	private Properties prop;
 	
-	public ReadObjectRepository(){
+	public ReadObjectRepository() throws IOException{
 		
 		try {
 			inputStraem =ReadObjectRepository.class.getClassLoader().getResourceAsStream("objectRepository/page.properties"); 
@@ -21,6 +21,8 @@ public class ReadObjectRepository {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally{
+			inputStraem.close();
 		}
 	}
 	

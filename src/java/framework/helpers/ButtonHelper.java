@@ -4,7 +4,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.openqa.selenium.By;
 
 import drivers.StartWedDriver;
-import excelhelpers.ExcelHelper;
+import excelhelpers.ExcelFilePathSheetColHelper;
 
 public class ButtonHelper extends StartWedDriver {
 
@@ -13,7 +13,7 @@ public class ButtonHelper extends StartWedDriver {
 	}
 
 	public static void clickButtonByKeyword(XSSFRow row) {
-		String locatorKey = row.getCell(ExcelHelper.locatorKey).getStringCellValue();
+		String locatorKey = row.getCell(ExcelFilePathSheetColHelper.locatorKey).getStringCellValue();
 		clickButton(objectRepo.getLocator(locatorKey));
 		
 	}

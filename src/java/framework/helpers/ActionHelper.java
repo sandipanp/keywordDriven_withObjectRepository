@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import drivers.StartWedDriver;
-import excelhelpers.ExcelHelper;
+import excelhelpers.ExcelFilePathSheetColHelper;
 
 public class ActionHelper extends StartWedDriver {
 
@@ -28,11 +28,11 @@ public class ActionHelper extends StartWedDriver {
 	}
 
 	public static void moveToElementByKeyword(XSSFRow row) {
-		moveToElement(objectRepo.getLocator(row.getCell(ExcelHelper.locatorKey).getStringCellValue()));
+		moveToElement(objectRepo.getLocator(row.getCell(ExcelFilePathSheetColHelper.locatorKey).getStringCellValue()));
 	}
 
 	public static void moveToElementAndClickByKeyword(XSSFRow row) {
-		moveToElementAndClick(objectRepo.getLocator(row.getCell(ExcelHelper.locatorKey).getStringCellValue()));
+		moveToElementAndClick(objectRepo.getLocator(row.getCell(ExcelFilePathSheetColHelper.locatorKey).getStringCellValue()));
 		
 	}
 }

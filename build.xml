@@ -9,9 +9,6 @@
     <property name="test.jars" value="${test.home}/lib" description="Specifies JAR locations"/>
     <property name="test.dest" value="${test.home}/ant_build" description="Specifies location to store .class compiled files"/>
 	<property name="test.reports" value="${test.home}/ant_reports" description="Specifies test report output location"/>
-	<!--<property name="test.resources" value="${test.home}/src/java/framework/resources" description="Specifies location of resources like config file and browser exe"/>
-	<property name="test.objectrepo" value="${test.home}/src/java/framework/objectRepository" description="Specifies location of object repository file"/>
-	<property name="test.keywordtestcases" value="${test.home}//src/java/tests/keywordtestcases" description="Specifies location of keyword testcase excel file"/>-->
 	<property name="test.suite" value="${test.src}/testsuites/RegressionSuite.xml" description="Specifies TestNG test suite location"/>
 	
     <path id="test.classpath">

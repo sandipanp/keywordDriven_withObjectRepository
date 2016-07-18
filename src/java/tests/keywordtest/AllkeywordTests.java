@@ -6,23 +6,23 @@ import org.testng.annotations.Test;
 
 import customexception.NoSuchKeywordException;
 import drivers.StartWedDriver;
-import excelhelpers.ExcelHelper;
+import excelhelpers.ExcelFilePathSheetColHelper;
 import keyworddriven.KeywordDefinition;
 
 public class AllkeywordTests extends StartWedDriver  {
 
 	@Test(enabled=true)
 	public void loginTest() throws IOException, NoSuchKeywordException{
-		KeywordDefinition.performactionbasedonKeyword(ExcelHelper.keywordTestcaseFilePath, ExcelHelper.loginTestSheetName);
+		KeywordDefinition.performactionbasedonKeyword(ExcelFilePathSheetColHelper.keywordTestcaseFilePath, ExcelFilePathSheetColHelper.loginTestSheetName);
 	}
 	
 	@Test(enabled=true)
 	public void canGoToMensFormalShoePageTest() throws IOException, NoSuchKeywordException {
-		KeywordDefinition.performactionbasedonKeyword(ExcelHelper.keywordTestcaseFilePath, ExcelHelper.canGoToMensFormalShoPpage);
+		KeywordDefinition.performactionbasedonKeyword(ExcelFilePathSheetColHelper.keywordTestcaseFilePath, ExcelFilePathSheetColHelper.canGoToMensFormalShoPpage);
 	}
 	
 	@Test(enabled=true)
 	public void formalShoePageSortingTest() throws IOException, NoSuchKeywordException{
-		KeywordDefinition.performactionbasedonKeyword(ExcelHelper.keywordTestcaseFilePath, ExcelHelper.formalShoepageSorting);
+		KeywordDefinition.performactionbasedonKeyword(ExcelFilePathSheetColHelper.keywordTestcaseFilePath, ExcelFilePathSheetColHelper.formalShoepageSorting);
 	}
 }
