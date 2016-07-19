@@ -36,7 +36,7 @@ public class testframework extends StartWedDriver {
 		TextBoxHelper.enterText(objectRepo.getLocator("leathershop.signinpage.username"), "sandipan.mca@gmail.com");
 		
 		//put password
-		TextBoxHelper.enterText(objectRepo.getLocator("leathershop.signinpage.password"), "Password");
+		TextBoxHelper.enterText(objectRepo.getLocator("leathershop.signinpage.password"), "Password1");
 		Thread.sleep(10);
 		//Click button
 		ButtonHelper.clickButton(objectRepo.getLocator("leathershop.signinpage.signinbutton"));
@@ -67,7 +67,7 @@ public class testframework extends StartWedDriver {
 		ActionHelper.moveToElementAndClick(objectRepo.getLocator("leathershop.men.submenu.formal"));
 		
 		// Verify you are on formal page
-		VerificationHelper.verifyTextContains(objectRepo.getLocator("leathershop.men.formalshoepage.formaltext"), "ORMAL");
+		VerificationHelper.verifyTextContains(objectRepo.getLocator("leathershop.men.formalshoepage.formaltext"), "FORMAL");
 		
 		// Log out from site
 		LoginLogout.logoutFromSite();
