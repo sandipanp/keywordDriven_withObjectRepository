@@ -42,7 +42,7 @@ public class testframework extends StartWedDriver {
 		ButtonHelper.clickButton(objectRepo.getLocator("leathershop.signinpage.signinbutton"));
 		
 		//Verify log in
-		VerificationHelper.verifyExactText("Sandipa Pramanik", objectRepo.getLocator("leathershop.myaccountpage.displayedusename"));
+		VerificationHelper.verifyExactText("Sandipan Pramanik", objectRepo.getLocator("leathershop.myaccountpage.displayedusename"));
 	}
 	
 	@Test(enabled=true)
