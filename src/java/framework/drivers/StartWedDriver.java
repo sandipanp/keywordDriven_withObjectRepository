@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -29,6 +30,9 @@ public class StartWedDriver extends ExcelFilePathSheetColHelper{
 			switch (configProp.getBrowserType()) {
 			case "firefox":
 				driver = new FirefoxDriver();
+				break;
+			case "safari":
+				driver = new SafariDriver();
 				break;
 			case "chrome":
 				System.setProperty("webdriver.chrome.driver",StartWedDriver.class.getClassLoader().getResource("resources/chromedriver.exe").getPath());
