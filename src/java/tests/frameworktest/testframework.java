@@ -15,6 +15,8 @@ import helpers.ComboboxHelper;
 import helpers.LinkHelper;
 import helpers.TextBoxHelper;
 import helpers.VerificationHelper;
+import logger.SELENIUMLogger;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +25,14 @@ public class testframework extends StartWedDriver {
 
 	@Test(enabled=true)
 	public void Test1() throws Exception{
+		SELENIUMLogger.Log("Test1  Started");
 		//driver.findElement(objectRepo.getLocator("leathershop.homepage.signinlink")).click();
 		LinkHelper.clickLink(objectRepo.getLocator("leathershop.homepage.signinlink"));
-		System.out.println("In text 1");
+		SELENIUMLogger.Log("Test1  Completed");
 	}
 	@Test(enabled=true)
 	public void Test2() throws Exception{
+		SELENIUMLogger.Log("Test2  Started");
 		//Click Sign in link in home page
 		LinkHelper.clickLink(objectRepo.getLocator("leathershop.homepage.signinlink"));
 		
@@ -43,21 +47,27 @@ public class testframework extends StartWedDriver {
 		
 		//Verify log in
 		VerificationHelper.verifyExactText("Sandipan Pramanik", objectRepo.getLocator("leathershop.myaccountpage.displayedusename"));
+		SELENIUMLogger.Log("Test2  Completed");
 	}
 	
 	@Test(enabled=true)
 	public void Test3() {
+		SELENIUMLogger.Log("Test3  Started");
 		System.out.println("In test 3");
+		SELENIUMLogger.Log("Test3  Completed");
 	}
 	
 	@Test(enabled=true)
 	public void LoginTest()  {
+		SELENIUMLogger.Log("LoginTest  Started");
 		LoginLogout.loginToSite(configProp.getUsername(), configProp.getPassword());
 		LoginLogout.logoutFromSite();
+		SELENIUMLogger.Log("LoginTest  Completed");
 	}
 	
 	@Test(enabled=true)
 	public void CanGoToMenFormalShoePage() throws InterruptedException{
+		SELENIUMLogger.Log("CanGoToMenFormalShoePage  Started");
 		// First log in to site
 		LoginLogout.loginToSite(configProp.getUsername(), configProp.getPassword());
 		// Move on Menu Option :  Men
@@ -89,7 +99,7 @@ public class testframework extends StartWedDriver {
 		boolean result = driver.findElement(objectRepo.getLocator("leathershop.men.formalshoepage.formaltext")).getText().contains("FORMAL");
 		Assert.assertTrue(result, "Not at formal shoe page");
 		*/
-		
+		SELENIUMLogger.Log("CanGoToMenFormalShoePage  Completed");
 	}
 	
 	@Test(enabled=false)
