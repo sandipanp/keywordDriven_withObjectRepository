@@ -14,6 +14,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 
 import excelhelpers.ExcelFilePathSheetColHelper;
+import logger.SELENIUMLogger;
 
 
 public class StartWedDriver extends ExcelFilePathSheetColHelper{
@@ -27,6 +28,7 @@ public class StartWedDriver extends ExcelFilePathSheetColHelper{
 		try {
 			objectRepo = new ReadObjectRepository();
 			configProp = new ReadConfigProperty();
+			SELENIUMLogger.Configure();
 			switch (configProp.getBrowserType()) {
 			case "firefox":
 				driver = new FirefoxDriver();

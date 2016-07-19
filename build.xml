@@ -40,6 +40,7 @@
 		    <fileset dir="${framework.src}">
 		    	<include name="**/*.properties"/>
 		    	<include name="**/*.exe"/>
+		    	<include name="**/*.xml"/>
 		    </fileset>
 		</copy>
 		<echo message="Copying keyword testcase files (.xlsx files) to Ant build directory"/>
