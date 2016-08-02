@@ -71,6 +71,9 @@ public class KeywordDefinition {
 				case "verifyComboSelection":
 					VerificationHelper.verifyComboSelectionByKeyword(row);
 					break;
+				case "verifyFormalShoeAddedToCart":
+					VerificationHelper.verifyFormalShoeAddedToCartByKeyword(row);
+					break;
 				default:
 					throw new NoSuchKeywordException("No keyword found : " + row.getCell(ExcelFilePathSheetColHelper.actions).getStringCellValue());
 				}

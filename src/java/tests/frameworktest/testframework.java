@@ -15,6 +15,7 @@ import helpers.ComboboxHelper;
 import helpers.LinkHelper;
 import helpers.TextBoxHelper;
 import helpers.VerificationHelper;
+import helpers.WebTable;
 import logger.SELENIUMLogger;
 
 import java.io.*;
@@ -128,5 +129,25 @@ public class testframework extends StartWedDriver {
 		System.out.println(price[0]); */
 	}
 	
+	@Test(enabled = true)
+	public void addformalShoeToCart() throws InterruptedException{
+		SELENIUMLogger.Log("addformalShoeToCart  Started");
+		LoginLogout.loginToSite(configProp.getUsername(), configProp.getPassword());
+		Navigation.moveToMensFormalShoePage();
+		ButtonHelper.clickButton(objectRepo.getLocator("leathershop.men.formalshoepage.listview"));
+		//driver.findElement(objectRepo.getLocator("leathershop.men.formalshoepage.listview")).click();
+		Thread.sleep(3000);
+		ButtonHelper.clickButton(objectRepo.getLocator("leathershop.men.formalshoepage.addtoCart"));
+		//driver.findElement(objectRepo.getLocator("leathershop.men.formalshoepage.addtoCart")).click();
+		Thread.sleep(3000);
+		ButtonHelper.clickButton(objectRepo.getLocator("leathershop.cartpopup.proceedtocheckout"));
+		//driver.findElement(objectRepo.getLocator("leathershop.cartpopup.proceedtocheckout")).click();
+		//WebTable table = new WebTable(driver.findElement(objectRepo.getLocator("leathershop.cartpage.table")));
+		//String aaa = table.getCellText(1, 2);
+		VerificationHelper.verifyFormalShoeAddedToCart("Casual Wear", objectRepo.getLocator("leathershop.cartpage.table"));
+		
+		LoginLogout.logoutFromSite();
+		SELENIUMLogger.Log("addformalShoeToCart  Completed");
+	}
 	
 }

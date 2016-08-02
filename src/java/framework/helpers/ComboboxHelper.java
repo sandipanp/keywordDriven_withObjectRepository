@@ -11,23 +11,27 @@ import logger.SELENIUMLogger;
 public class ComboboxHelper extends StartWedDriver {
 
 	public static void selectComboOption(By locator, String visibleText) {
-		SELENIUMLogger.Log("selectComboOption  enter");
+		try{
+		SELENIUMLogger.Log("ComboboxHelper : selectComboOption  enter");
 		Select sel = new Select(driver.findElement(locator));
 		sel.selectByVisibleText(visibleText);
-		SELENIUMLogger.Log("selectComboOption  exit");
+		SELENIUMLogger.Log("ComboboxHelper : selectComboOption  exit");
+		} catch(Exception e) {
+			SELENIUMLogger.Log("ComboboxHelper : selectComboOption => FAILED");
+		}
 	}
 	
 	public static String getSelectedText(By locator){
-		SELENIUMLogger.Log("getSelectedText  enter");
+		SELENIUMLogger.Log("ComboboxHelper : getSelectedText  enter");
 		Select sel = new Select(driver.findElement(locator));
 		String selectedOption = sel.getFirstSelectedOption().getText();
-		SELENIUMLogger.Log("getSelectedText  returning");
+		SELENIUMLogger.Log("ComboboxHelper : getSelectedText  returning");
 		return selectedOption;
 	}
 
 	public static void selectComboOptionByKeyword(XSSFRow row) {
-		SELENIUMLogger.Log("selectComboOptionByKeyword  enter");
+		SELENIUMLogger.Log("ComboboxHelper : selectComboOptionByKeyword  enter");
 		selectComboOption(objectRepo.getLocator(row.getCell(ExcelFilePathSheetColHelper.locatorKey).getStringCellValue()), row.getCell(ExcelFilePathSheetColHelper.testData).getStringCellValue());
-		SELENIUMLogger.Log("selectComboOptionByKeyword  exit");
+		SELENIUMLogger.Log("ComboboxHelper : selectComboOptionByKeyword  exit");
 	}
 }

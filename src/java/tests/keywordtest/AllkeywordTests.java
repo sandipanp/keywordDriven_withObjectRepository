@@ -25,4 +25,9 @@ public class AllkeywordTests extends StartWedDriver  {
 	public void formalShoePageSortingTest() throws IOException, NoSuchKeywordException{
 		KeywordDefinition.performactionbasedonKeyword(ExcelFilePathSheetColHelper.keywordTestcaseFilePath, ExcelFilePathSheetColHelper.formalShoepageSorting);
 	}
+	
+	@Test(enabled=true)
+	public void formalshoeaddtocarttest() throws IOException, NoSuchKeywordException{
+		KeywordDefinition.performactionbasedonKeyword(ExcelFilePathSheetColHelper.keywordTestcaseFilePath, ExcelFilePathSheetColHelper.addingFormalShoeToCart);
+	}
 }

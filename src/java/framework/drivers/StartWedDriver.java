@@ -52,7 +52,7 @@ public class StartWedDriver extends ExcelFilePathSheetColHelper{
 			
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			SELENIUMLogger.Log("StartWedDriver : Failed");
 		}
 		
 	}

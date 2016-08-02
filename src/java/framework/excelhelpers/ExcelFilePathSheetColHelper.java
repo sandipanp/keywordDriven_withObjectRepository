@@ -14,6 +14,7 @@ public class ExcelFilePathSheetColHelper {
 	
 	public static String canGoToMensFormalShoPpage = "cangotomensformalshoepage";
 	public static String formalShoepageSorting = "formalShoepageSorting";
+	public static String addingFormalShoeToCart = "canaddformalshoetocart";
 	
 	public static String testDataFilePath = ExcelFilePathSheetColHelper.class.getClassLoader().getResource("datafiles/MasterTestDataFile.xlsx").getPath();
 	public static String testDataSheet = "TestCaseDataSets";
