@@ -19,7 +19,6 @@ public class ReadObjectRepository {
 			prop = new Properties();
 			prop.load(inputStraem);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			inputStraem.close();
