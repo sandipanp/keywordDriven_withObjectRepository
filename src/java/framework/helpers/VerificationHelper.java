@@ -7,7 +7,6 @@ import org.testng.Assert;
 
 import drivers.StartWedDriver;
 import excelhelpers.ExcelFilePathSheetColHelper;
-import logger.SELENIUMLogger;
 
 public class VerificationHelper extends StartWedDriver {
 
@@ -60,6 +59,5 @@ public class VerificationHelper extends StartWedDriver {
 
 	public static void verifyFormalShoeAddedToCartByKeyword(XSSFRow row) {
 		verifyFormalShoeAddedToCart(row.getCell(ExcelFilePathSheetColHelper.verificationText).getStringCellValue(), objectRepo.getLocator(row.getCell(ExcelFilePathSheetColHelper.locatorKey).getStringCellValue()));
-		
 	}
 }
